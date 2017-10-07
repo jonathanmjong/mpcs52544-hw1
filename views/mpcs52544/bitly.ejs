@@ -1,0 +1,47 @@
+<% include ../partials/header %>
+
+<div class="container">
+	<h1>Bitly Clone</h1>
+	<form action="/bitly" method="post">
+		<p>		
+			<input type="text" name="redirectLinkFromView" placeholder="Bitly Link">
+		</p>
+		<p>		
+			<button class="btn btn-primary btn-lg">Create Link</button>
+		</p>
+	</form>
+
+	<hr>
+
+	<div>
+		<h2>Signing up, in, and out</h2>
+		<div>
+			This app has functionality to sign up for an account, sign in, and log out. All options are in the menu of every webpage. Username and password are simple and unsecure and can be any string.
+		</div>
+		<h2>How to use:</h1>
+		<ul>
+			<li>This Bitly clone operates by the user typing in the search bar above the link they want to "bitlyfy".</li>
+			<li>Once the Create Link button is pressed the link in the search bar is "bitlyfied" and a notification of the bitly link is displayed above. </li>
+			<li>This link is stored permanently in a NoSQL cloud database (Azure CosmosDB) and can be used anytime. This new link will redirect to the original URL that the user inputed and "bitlyfied". If the user input is not a valid URL then smart page routing will not occur.</li>			
+		</ul>
+		<h2>Bitly link Statistics info:</h2>
+		<ul>
+			<li>
+				Every time a new browser session is created and the link is viewed, the view count for the bitly link is incremented by 1 and the most recent view date updated. 
+			</li>
+			<li>
+				Note: For every browser restart, Chrome will store signed in user info so view count and most recent date viewed only updates in incognito mode.
+			</li>
+			<li>
+				New browser session view count chart and most recent view date can be viewed at www.jonathanjongdemo.com/bitly/:bitly_link/statistics
+			</li>
+		</ul>
+
+	</div>
+
+
+</div> <!-- end body container -->
+
+
+
+<% include ../partials/footer %>

@@ -1,0 +1,20 @@
+<% include ../partials/header %>
+
+<div class="container">
+	<div class="row">
+		<h1>Post a new review for <%= educatorFromController.educatorName %></h1>
+		<div style="width: 30%; margin: 25px auto;">
+			<form action="/educators/<%= educatorFromController._id %>/comments" method="POST">
+				<div class="form-group">
+					<input class="form-control" type="text" name="commentFromView[commentText]" placeholder="text">
+				</div>
+				<div class="form-group">
+					<button class="btn btn-lg btn-primary btn-default btn-block">Submit!</button>
+				</div>
+			</form>
+			<a href="/educators">Back to EdaMate profiles </a>
+		</div>
+	</div>
+</div>
+
+<% include ../partials/footer %>

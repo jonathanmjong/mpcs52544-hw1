@@ -1,6 +1,4 @@
-Readme for University of Chicago Advanced Web Development Fall 2017 homework 1.
-
-Bitly Clone
+Bitly Clone for University of Chicago Advanced Web Development Fall 2017 homework 1.
 
 Along with code committed in github, full working site is at:
 

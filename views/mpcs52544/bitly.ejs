@@ -1,4 +1,10 @@
 <% include ../partials/header %>
+<style>
+	table, th, td {
+		border: 1px solid black;
+		border-collapse: collapse;
+	}
+</style>
 
 <div class="container">
 	<h1>Bitly Clone</h1>
@@ -10,6 +16,41 @@
 			<button class="btn btn-primary btn-lg">Create Link</button>
 		</p>
 	</form>
+
+	<hr>
+<!-- Used code from this site to create bar graphs: http://www.cssbakery.com/2009/06/data-visualisation-flexible-bar-graphs.html -->
+	<div class="bargraph" style= "width: 1000px;">
+		<ul class="bars">
+			<% bitlyLinks.forEach(function(bitly){ %>
+				<li class="bar<%= bitly.bitly_link %> greenbar" style="height: <%= bitly.num_views*5 %>px; line-height: 0; color: black"><%= bitly.num_views %></li>				
+			<% }); %>
+		</ul>
+		<ul class="label">
+			<% bitlyLinks.forEach(function(bitly){ %>
+				<li>Link: <%= bitly.bitly_link %></li>				
+			<% }); %>
+		</ul>
+
+		<p class="centered">Bitly link statistics</p> 
+	</div>
+
+	<hr>
+
+	<table>
+		<tr>
+			<th style="text-align: center">Link:</th>
+			<th style="text-align: center">Redirects to:</th>
+			<th style="text-align: center">Last viewed:</th>
+		</tr>
+		<% bitlyLinks.forEach(function(bitly){ %>
+			<tr>
+				<th style="padding-right: 10px; padding-left: 10px"><%= bitly.bitly_link %>: www.jonathanjongdemo.com/bitly/<%= bitly.bitly_link %></th>
+				<th style="padding-right: 10px; padding-left: 10px"><%= bitly.redirect_link %></th>
+				<th style="padding-right: 10px; padding-left: 10px"><%= bitly.last_viewed %></th>
+			</tr>
+		<% }); %>		
+	</table>
+			
 
 	<hr>
 

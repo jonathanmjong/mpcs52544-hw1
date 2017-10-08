@@ -7,7 +7,14 @@ var Bitly = require("../models/bitly");
 
 
 router.get("/bitly", middleware.isLoggedIn, function (req, res) {
-    res.render("mpcs52544/bitly");
+	Bitly.find({}, function (err, bitlyLinks) {
+		if(err) {
+			console.log(err);
+		} else {
+            console.log(bitlyLinks);            
+			res.render("mpcs52544/bitly", {bitlyLinks: bitlyLinks});
+		}
+	});
 });
 
 router.post("/bitly", middleware.isLoggedIn, function (req, res) {
